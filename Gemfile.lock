@@ -40,8 +40,9 @@ GEM
       tzinfo (~> 1.1)
     ansi (1.5.0)
     arel (8.0.0)
-    autoprefixer-rails (8.5.2)
+    autoprefixer-rails (8.6.1)
       execjs
+    bcrypt (3.1.11)
     bindex (0.5.0)
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
@@ -60,7 +61,7 @@ GEM
     crass (1.0.4)
     erubi (1.7.1)
     execjs (2.7.0)
-    ffi (1.9.23)
+    ffi (1.9.25)
     formatador (0.2.5)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
@@ -202,6 +203,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt (= 3.1.11)
   bootstrap-sass (= 3.3.7)
   byebug (= 9.0.6)
   coffee-rails (= 4.2.2)
