@@ -82,6 +82,16 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_url
   end
   
+  test "should redirect following when not logged in" do
+    get following_user_path(@user)
+    assert_redirected_to login_url
+  end
+
+  test "should redirect followers when not logged in" do
+    get followers_user_path(@user)
+    assert_redirected_to login_url
+  end
+  
   # def setup
   #   @user       = users(:michael)
   # end
@@ -95,5 +105,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   #   assert_select "a[href=?]", edit_user_path(@user)    
   #   assert_select "a[href=?]", logout_path
   # end
+
+
 
 end
