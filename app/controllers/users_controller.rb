@@ -6,7 +6,8 @@ class UsersController < ApplicationController
   
   
   def index
-    @users = User.where(activated: true).paginate(page: params[:page])
+    # ユーザー一覧を２０件ずつ表示する
+    @users = User.where(activated: true).paginate(page: params[:page], per_page: 20)
   end
   
   def show
@@ -26,7 +27,7 @@ class UsersController < ApplicationController
     if @user.save
       @user.send_activation_email
       # UserMailer.account_activation(@user).deliver_now
-      flash[:info] = "Please check your email to activate your account."
+      flash[:info] = "メールを確認してアカウントを有効化してください"
       redirect_to root_url
     # if false
       # log_in @user
@@ -47,7 +48,7 @@ class UsersController < ApplicationController
     # @user = User.find(params[:id])
     if @user.update_attributes(user_params)
       # 更新に成功した場合を扱う。
-      flash[:success] = "Profile updated"
+      flash[:success] = "プロフィールを更新しました。"
       redirect_to @user
     else
       render 'edit'
@@ -56,19 +57,19 @@ class UsersController < ApplicationController
   
   def destroy
     User.find(params[:id]).destroy
-    flash[:success] = "User deleted"
+    flash[:success] = "削除しました。"
     redirect_to users_url
   end
   
   def following
-    @title = "Following"
+    @title = "フォロー"
     @user  = User.find(params[:id])
     @users = @user.following.paginate(page: params[:page])
     render 'show_follow'
   end
 
   def followers
-    @title = "Followers"
+    @title = "フォロワー"
     @user  = User.find(params[:id])
     @users = @user.followers.paginate(page: params[:page])
     render 'show_follow'
@@ -86,7 +87,7 @@ class UsersController < ApplicationController
     def logged_in_user
       unless logged_in?
         store_location    #アクセスしようとしたリクエストを覚えておく（GETのみ）
-        flash[:danger] = "Please log in."
+        flash[:danger] = "ログインしてください"
         redirect_to login_url
       end
     end
