@@ -15,6 +15,7 @@ $gray-medium-light: #eaeaea;
 
 body {
   padding-top: 60px;
+  background-image: image-url('cloudy-day.png')
 }
 
 section {
@@ -40,9 +41,12 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: 3em;
+  font-weight: bold;
   letter-spacing: -2px;
   margin-bottom: 30px;
   text-align: center;
+  // font-family: Quicksand, 游ゴシック体, "Yu Gothic", YuGothic, "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+  font-family: 'Hiragino Kaku Gothic Pro','ヒラギノ角ゴ Pro W3','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
 }
 
 h2 {
